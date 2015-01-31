@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130110340) do
+ActiveRecord::Schema.define(version: 20150131120406) do
 
   create_table "jobs", force: true do |t|
     t.string   "url"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20150130110340) do
     t.datetime "last_run"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "stories", force: true do |t|
+    t.integer  "job_id"
+    t.string   "title"
+    t.string   "story_url"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "seen_flag",  default: false
   end
 
 end

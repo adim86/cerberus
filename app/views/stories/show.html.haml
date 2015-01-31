@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Job:
+  = @story.job_id
+%p
+  %b Title:
+  = @story.title
+%p
+  %b Story url:
+  = @story.story_url
+%p
+  %b Summary:
+  = @story.summary
+
+= link_to 'Edit', edit_story_path(@story)
+\|
+= link_to 'Back', stories_path
