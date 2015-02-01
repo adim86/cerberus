@@ -13,8 +13,8 @@ module BlogTracker
           #Feed comeback with newest on top we like it bac
           feed_entries.reverse!
 
-          last_story = Story.where(:job_url => job).order("created_at").last
-          puts last_story
+          last_story = Story.where(:job_url => job).order(created_at: :asc).last
+          puts last_story.inspect
           if (last_story.blank?)
             add_new_stories(feed_entries, job)
           else
