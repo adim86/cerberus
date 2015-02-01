@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
-    @stories = Story.all.order(created_at: :desc)
+    @stories = Story.all.order(id: :desc)
   end
 
   # GET /jobs/1
