@@ -31,7 +31,7 @@ module BlogTracker
           story_object['job_url'] = job_url
           story_object.save
 
-          puts new_entry.title
+          #puts new_entry.title
         end
       end
 
@@ -49,8 +49,12 @@ module BlogTracker
 
         if( found_title_at != -1 && found_title_at != feed_entries.length - 1)
 
+          puts"New feed entries"
+          puts "found title = #{found_title_at}"
+          puts feed_entries
           new_story_array = feed_entries.slice(found_title_at + 1, feed_entries.length)
-
+          puts "----------------------------------------------------------"
+          puts new_story_array
           puts "new stories = #{new_story_array.length}"
           add_new_stories(new_story_array, job_url)
         end
