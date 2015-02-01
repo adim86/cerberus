@@ -43,6 +43,7 @@ module BlogTracker
 
           if(entry.title == last_story.title)
             found_title_at = index
+            puts "The index = #{found_title_at}"
           end
 
         end
@@ -51,10 +52,10 @@ module BlogTracker
 
           puts"New feed entries"
           puts "found title = #{found_title_at}"
-          puts feed_entries.inspect
+          puts "feed lenght = #{feed_entries.length}"
           new_story_array = feed_entries.slice(found_title_at + 1, feed_entries.length)
           puts "----------------------------------------------------------"
-          puts new_story_array.inspect
+          
           puts "new stories = #{new_story_array.length}"
           add_new_stories(new_story_array, job_url)
         end
