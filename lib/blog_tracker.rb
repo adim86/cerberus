@@ -5,10 +5,11 @@ module BlogTracker
       def perform
         job_urls = Job.pluck(:url)
         
-        feeds = Feedjira::Feed.fetch_and_parse job_urls
-
         job_urls.each_with_index do |job, index|
-          feed_entries = feeds[job].entries
+          puts job
+          feeds = Feedjira::Feed.fetch_and_parse job
+
+          feed_entries = feeds.entries
 
           #Feed comeback with newest on top we like it bac
           feed_entries.reverse!
