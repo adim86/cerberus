@@ -51,10 +51,10 @@ module BlogTracker
 
           puts"New feed entries"
           puts "found title = #{found_title_at}"
-          puts feed_entries
+          puts feed_entries.inspect
           new_story_array = feed_entries.slice(found_title_at + 1, feed_entries.length)
           puts "----------------------------------------------------------"
-          puts new_story_array
+          puts new_story_array.inspect
           puts "new stories = #{new_story_array.length}"
           add_new_stories(new_story_array, job_url)
         end
