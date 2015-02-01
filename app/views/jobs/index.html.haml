@@ -1,0 +1,44 @@
+%h1 Cerberus Project
+%table
+  %thead
+    %tr
+      %th Url
+      %th Interval
+      %th Last run
+      %th{:colspan => "3"}
+  %tbody
+    - @jobs.each do |job|
+      %tr
+        %td
+          = job.url
+        %td
+          = job.interval
+        %td
+          = job.last_run
+        %td
+          = link_to 'Show', job
+        %td
+          = link_to 'Edit', edit_job_path(job)
+        %td
+          = link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Job', new_job_path
+%br
+%br
+%h1
+  ="Story Table"
+%table
+  %thead
+    %tr
+      %th Story
+      %th blog
+      %th created
+  %tbody
+    - @stories.each do |story|
+      %tr
+        %td
+          =link_to story.title, story.story_url
+        %td
+          = story.job_url
+        %td
+          = story.created_at
